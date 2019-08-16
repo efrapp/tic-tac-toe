@@ -1,0 +1,220 @@
+{
+	"textures": [
+		{
+			"image": "tic_tac_toe_ss.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1202,
+				"h": 1586
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "bg_autumn_forest_1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1200,
+						"h": 768
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1200,
+						"h": 768
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 1200,
+						"h": 768
+					},
+					"anchor": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"filename": "bg_autumn_forest_2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1200,
+						"h": 768
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1200,
+						"h": 768
+					},
+					"frame": {
+						"x": 1,
+						"y": 771,
+						"w": 1200,
+						"h": 768
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "gold-coin/gold_coin_hexagon_1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 50,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 3,
+						"w": 50,
+						"h": 44
+					},
+					"frame": {
+						"x": 1,
+						"y": 1541,
+						"w": 50,
+						"h": 44
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "gold-coin/gold_coin_hexagon_2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 50,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 3,
+						"w": 48,
+						"h": 44
+					},
+					"frame": {
+						"x": 53,
+						"y": 1541,
+						"w": 48,
+						"h": 44
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "gold-coin/gold_coin_hexagon_6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 50,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 3,
+						"w": 48,
+						"h": 44
+					},
+					"frame": {
+						"x": 103,
+						"y": 1541,
+						"w": 48,
+						"h": 44
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "gold-coin/gold_coin_hexagon_3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 50,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 3,
+						"w": 32,
+						"h": 44
+					},
+					"frame": {
+						"x": 153,
+						"y": 1541,
+						"w": 32,
+						"h": 44
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "gold-coin/gold_coin_hexagon_5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 50,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 3,
+						"w": 32,
+						"h": 44
+					},
+					"frame": {
+						"x": 187,
+						"y": 1541,
+						"w": 32,
+						"h": 44
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "gold-coin/gold_coin_hexagon_4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 50,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 3,
+						"w": 18,
+						"h": 44
+					},
+					"frame": {
+						"x": 221,
+						"y": 1541,
+						"w": 18,
+						"h": 44
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:f6737b9302bf14fda2a61171626d5133:bc15bd18db832d3bce6a7cfb3407b33a:764156bc2561709ecea36d6bee9689dc$"
+	}
+}
