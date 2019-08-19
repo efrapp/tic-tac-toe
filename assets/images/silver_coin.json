@@ -1,11 +1,11 @@
 {
 	"textures": [
 		{
-			"image": "gold_coin_hexagon_ss.png",
+			"image": "temp_gold_coin.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 300,
-				"h": 50
+				"w": 313,
+				"h": 52
 			},
 			"scale": 1,
 			"frames": [
@@ -24,8 +24,8 @@
 						"h": 50
 					},
 					"frame": {
-						"x": 0,
-						"y": 0,
+						"x": 1,
+						"y": 1,
 						"w": 50,
 						"h": 50
 					}
@@ -45,8 +45,8 @@
 						"h": 50
 					},
 					"frame": {
-						"x": 50,
-						"y": 0,
+						"x": 53,
+						"y": 1,
 						"w": 50,
 						"h": 50
 					}
@@ -66,8 +66,8 @@
 						"h": 50
 					},
 					"frame": {
-						"x": 100,
-						"y": 0,
+						"x": 105,
+						"y": 1,
 						"w": 50,
 						"h": 50
 					}
@@ -87,8 +87,8 @@
 						"h": 50
 					},
 					"frame": {
-						"x": 150,
-						"y": 0,
+						"x": 157,
+						"y": 1,
 						"w": 50,
 						"h": 50
 					}
@@ -108,8 +108,8 @@
 						"h": 50
 					},
 					"frame": {
-						"x": 200,
-						"y": 0,
+						"x": 209,
+						"y": 1,
 						"w": 50,
 						"h": 50
 					}
@@ -129,8 +129,8 @@
 						"h": 50
 					},
 					"frame": {
-						"x": 250,
-						"y": 0,
+						"x": 261,
+						"y": 1,
 						"w": 50,
 						"h": 50
 					}
@@ -141,6 +141,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:0d05ad74d64d894f2759541a94553d1e:59c9523a5b687ffcb721c3302db79696:b32e758f1654b286545b73bea15aac78$"
+		"smartupdate": "$TexturePacker:SmartUpdate:b8e2a4d0c20b2ccecd6648e0c90460b8:59c9523a5b687ffcb721c3302db79696:6fa373a58531143680edfd09492394e4$"
 	}
 }
