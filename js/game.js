@@ -71,21 +71,30 @@ function setBoard() {
 }
 
 function addCoin(cell) {
-  this.cellObj = cell;
-  Coin({
-    scene: this,
-    x: this.cellObj.x,
-    y: this.cellObj.y,
-    type: 'gold_coin',
-  });
+  const cellObj = cell;
+
   if (Math.random() > 0.5) {
-    getCoin.call(this, 'gold_coin');
+    const gCoin = Coin({
+      scene: this,
+      x: cellObj.x,
+      y: cellObj.y,
+    });
+    gCoin
+      .animate('gold_coin')
+      .sound('coins_sound');
   } else {
-    getCoin.call(this, 'silver_coin');
+    const sCoin = Coin({
+      scene: this,
+      x: cellObj.x,
+      y: cellObj.y,
+    });
+    sCoin
+      .animate('silver_coin')
+      .sound('coins_sound');
   }
 
-  this.cellObj.off('clicked', addCoin);
-  this.cellObj.input.enabled = false;
+  cellObj.off('clicked', addCoin);
+  cellObj.input.enabled = false;
 }
 
 function getCoin(coinType) {
