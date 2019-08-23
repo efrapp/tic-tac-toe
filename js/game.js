@@ -1,122 +1,39 @@
 // eslint-disable-next-line import/extensions
-import Coin from './coin.js';
+import Scene1 from './scene1.js';
+// eslint-disable-next-line import/extensions
+import Scene2 from './scene2.js';
+// eslint-disable-next-line import/extensions
+import Board from './board.js';
+// eslint-disable-next-line import/extensions
+import Player from './player.js';
 
-function preload() {
-  // this.load.multiatlas('tictactoescene', 'assets/images/tic_tac_toe_ss.json', 'assets/images');
-  this.load.image('bg', 'assets/images/bg_autumn_forest_1.png');
-  this.load.image('cell', 'assets/images/cell.png');
-  this.load.audio('bg_sound', 'assets/sound/bg_sound.mp3');
-  this.load.audio('coins_sound', 'assets/sound/coins.mp3');
-  this.load.spritesheet('gold_coin', 'assets/images/gold_coin.png', {
-    frameWidth: 102,
-    frameHeight: 102,
-  });
-  this.load.spritesheet('silver_coin', 'assets/images/silver_coin.png', {
-    frameWidth: 102,
-    frameHeight: 102,
-  });
-}
+const Game = (() => {
+  // const board = [];
 
-function create() {
-  // set background
-  // this.bg = this.add.sprite(0, 0, 'tictactoescene', 'bg_autumn_forest_1.png');
-  this.bg = this.add.tileSprite(0, 0, window.innerWidth, 768, 'bg');
-  this.bg.setOrigin(0, 0);
-  this.bg.setScrollFactor(0);
-
-  this.music = this.sound.add('bg_sound');
-
-  const bgSoundConfig = {
-    mute: false,
-    volume: 1,
-    rate: 1,
-    detune: 0,
-    seek: 0,
-    loop: true,
-    delay: 0,
+  const config = {
+    type: Phaser.AUTO,
+    width: window.innerWidth,
+    height: window.innerHeight,
+    // backgroundColor: '#222288',
+    dom: { createContainer: true },
+    scene: [Scene2, Scene1],
   };
 
-  this.music.play(bgSoundConfig);
+  return {
+    init() {
+      const game = new Phaser.Game(config);
+      game.player1 = Player('Player1', 'X');
+      game.player2 = Player('Player2', 'O');
+      game.board = Board();
+      // console.log(game.player1.getMark());
+    },
+  };
+})();
 
-  setBoard.call(this);
-}
-
-function update() {
-  // Uncomment this line to animate the background
-  this.bg.tilePositionX -= 0.5;
-}
-
-function setBoard() {
-  const cell1 = this.add.image(window.innerWidth / 2 - 128, window.innerHeight / 2 - 140, 'cell');
-  const cell2 = this.add.image(window.innerWidth / 2, window.innerHeight / 2 - 140, 'cell');
-  this.add.image(window.innerWidth / 2 + 128, window.innerHeight / 2 - 140, 'cell');
-
-  this.add.image(window.innerWidth / 2 - 128, window.innerHeight / 2, 'cell');
-  this.add.image(window.innerWidth / 2, window.innerHeight / 2, 'cell');
-  this.add.image(window.innerWidth / 2 + 128, window.innerHeight / 2, 'cell');
-
-  this.add.image(window.innerWidth / 2 - 128, window.innerHeight / 2 + 140, 'cell');
-  this.add.image(window.innerWidth / 2, window.innerHeight / 2 + 140, 'cell');
-  this.add.image(window.innerWidth / 2 + 128, window.innerHeight / 2 + 140, 'cell');
-
-  cell1.setInteractive();
-  cell2.setInteractive();
-
-  cell1.on('clicked', addCoin, this);
-  cell2.on('clicked', addCoin, this);
-
-  this.input.on('gameobjectdown', (pointer, gameObject) => {
-    gameObject.emit('clicked', gameObject);
-  }, this);
-}
-
-function addCoin(cell) {
-  const cellObj = cell;
-
-  if (Math.random() > 0.5) {
-    const gCoin = Coin({
-      scene: this,
-      x: cellObj.x,
-      y: cellObj.y,
-    });
-    gCoin
-      .animate('gold_coin')
-      .sound('coins_sound');
-  } else {
-    const sCoin = Coin({
-      scene: this,
-      x: cellObj.x,
-      y: cellObj.y,
-    });
-    sCoin
-      .animate('silver_coin')
-      .sound('coins_sound');
-  }
-
-  cellObj.off('clicked', addCoin);
-  cellObj.input.enabled = false;
-}
-
-function getCoin(coinType) {
-  this.coin = this.add.sprite(this.cellObj.x, this.cellObj.y, coinType);
-  this.anims.create({
-    key: `${coinType}_anim`,
-    frames: this.anims.generateFrameNumbers(coinType),
-    frameRate: 20,
-    repeat: 2,
-  });
-
-  this.coinsSound = this.sound.add('coins_sound');
-
-  this.coin.play(`${coinType}_anim`);
-  this.coinsSound.play();
-}
-
-const config = {
-  type: Phaser.AUTO,
-  width: window.innerWidth,
-  height: window.innerHeight,
-  scene: { preload, create, update },
-};
-
-const game = new Phaser.Game(config);
+Game.init();
+// Game reponsabilities:
+//  create board
+//  update board
+//  create two players
+//  switch players
+//  check winner or tie
