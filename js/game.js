@@ -19,14 +19,16 @@ const Game = (() => {
     scene: [Scene2, Scene1],
   };
 
+  const init = () => {
+    const game = new Phaser.Game(config);
+    game.player1 = Player('Player1', 'X');
+    game.player2 = Player('Player2', 'O');
+    game.board = Board();
+    // console.log(game.player1.getMark());
+  };
+
   return {
-    init() {
-      const game = new Phaser.Game(config);
-      game.player1 = Player('Player1', 'X');
-      game.player2 = Player('Player2', 'O');
-      game.board = Board();
-      // console.log(game.player1.getMark());
-    },
+    init,
   };
 })();
 

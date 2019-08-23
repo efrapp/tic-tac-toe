@@ -1,5 +1,4 @@
 const Coin = (state) => {
-  const { Sprite } = Phaser.GameObjects;
   const { scene, x, y } = state;
 
   return {
@@ -13,7 +12,6 @@ const Coin = (state) => {
         repeat: 2,
       });
       coin.play(`${type}_anim`);
-
       return this;
     },
     sound(name) {

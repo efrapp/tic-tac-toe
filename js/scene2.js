@@ -48,7 +48,6 @@ export default class Scene2 extends Phaser.Scene {
 
   addCoin(cell) {
     const cellObj = cell;
-    console.log(cellObj);
     if (Math.random() > 0.5) {
       const gCoin = Coin({
         scene: this,
@@ -58,6 +57,11 @@ export default class Scene2 extends Phaser.Scene {
       gCoin
         .animate('gold_coin')
         .sound('coins_sound');
+      this.game.board.update(
+        // Get parent container of the clicked cell to know the position of it inside the container
+        cellObj.parentContainer.getIndex(cellObj),
+        this.game.player1.getMark(),
+      );
     } else {
       const sCoin = Coin({
         scene: this,
@@ -67,6 +71,11 @@ export default class Scene2 extends Phaser.Scene {
       sCoin
         .animate('silver_coin')
         .sound('coins_sound');
+      this.game.board.update(
+        // Get parent container of the clicked cell to know the position of it inside the container
+        cellObj.parentContainer.getIndex(cellObj),
+        this.game.player2.getMark(),
+      );
     }
 
     cellObj.off('clicked', this.addCoin);

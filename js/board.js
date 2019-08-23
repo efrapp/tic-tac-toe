@@ -2,27 +2,30 @@ const Board = () => {
   const gameBoard = [[null, null, null], [null, null, null], [null, null, null]];
 
   const get = () => gameBoard;
-  const translateToXY = (pos) => {
+  const translateToXY = (p) => {
     let coord = {};
+    const pos = p;
 
-    switch (pos) {
-      case pos <= 3:
-        coord = { x: 0, y: pos - 1 };
+    switch (true) {
+      case pos <= 2:
+        coord = { x: 0, y: pos };
         break;
-      case pos <= 6:
-        coord = { x: 1, y: pos - gameBoard.length - 1 };
+      case pos <= 5:
+        coord = { x: 1, y: pos - gameBoard.length };
         break;
       case pos <= 9:
-        coord = { x: 2, y: pos - gameBoard.length * 2 - 1 };
+        coord = { x: 2, y: pos - gameBoard.length * 2 };
         break;
       default:
-        console.log('Invalid position');
+        coord = null;
     }
     return coord;
   };
   const update = (pos, mark) => {
-    const coord = translateToXY(pos);
-    gameBoard[coord.x][coord.y] = mark;
+    if (translateToXY(pos)) {
+      const { x, y } = translateToXY(pos);
+      gameBoard[x][y] = mark;
+    }
 
     return gameBoard;
   };
