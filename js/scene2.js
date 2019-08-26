@@ -2,6 +2,10 @@
 import Coin from './coin.js';
 
 export default class Scene2 extends Phaser.Scene {
+  constructor() {
+    super('playGame');
+  }
+
   preload() {
     // this.load.multiatlas('tictactoescene', 'assets/images/tic_tac_toe_ss.json', 'assets/images');
     this.load.image('bg', 'assets/images/bg_autumn_forest_1.png');
@@ -37,8 +41,13 @@ export default class Scene2 extends Phaser.Scene {
       delay: 0,
     };
 
-    this.music.play(bgSoundConfig);
+    // this.music.play(bgSoundConfig);
     this.game.board.createGraphicGrid(this);
+
+    this.playerTurn = this.add.text(20, 20, `Your turn: ${this.game.currentPlayer.getName()}`, {
+      font: '30px Arial',
+      fill: 'brown',
+    });
   }
 
   update() {
@@ -48,37 +57,50 @@ export default class Scene2 extends Phaser.Scene {
 
   addCoin(cell) {
     const cellObj = cell;
-    if (Math.random() > 0.5) {
+    let logicBoard = null;
+
+    if (this.game.currentPlayer === this.game.player1) {
       const gCoin = Coin({
         scene: this,
         x: cellObj.x,
         y: cellObj.y,
       });
+
       gCoin
         .animate('gold_coin')
         .sound('coins_sound');
-      this.game.board.update(
+
+      logicBoard = this.game.board.update(
         // Get parent container of the clicked cell to know the position of it inside the container
         cellObj.parentContainer.getIndex(cellObj),
         this.game.player1.getMark(),
       );
+
+      this.game.currentPlayer = this.game.player2;
     } else {
       const sCoin = Coin({
         scene: this,
         x: cellObj.x,
         y: cellObj.y,
       });
+
       sCoin
         .animate('silver_coin')
         .sound('coins_sound');
-      this.game.board.update(
+
+      logicBoard = this.game.board.update(
         // Get parent container of the clicked cell to know the position of it inside the container
         cellObj.parentContainer.getIndex(cellObj),
         this.game.player2.getMark(),
       );
+
+      this.game.currentPlayer = this.game.player1;
     }
 
     cellObj.off('clicked', this.addCoin);
     cellObj.input.enabled = false;
+
+    console.log(this.game.status(logicBoard));
+    this.playerTurn.setText(`Your turn: ${this.game.currentPlayer.getName()}`);
   }
 }

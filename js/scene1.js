@@ -16,6 +16,8 @@ export default class Scene1 extends Phaser.Scene {
     const form = this.add.dom(300, 200).createFromCache('introform');
     // console.log(form);
     form.addListener('click');
+
+    // this.scene.start('playGame');
   }
 
   update() {
