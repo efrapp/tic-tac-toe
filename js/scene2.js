@@ -41,7 +41,7 @@ export default class Scene2 extends Phaser.Scene {
       delay: 0,
     };
 
-    // this.music.play(bgSoundConfig);
+    this.music.play(bgSoundConfig);
     this.game.board.createGraphicGrid(this);
 
     this.playerTurn = this.add.text(20, 20, `Your turn: ${this.game.currentPlayer.getName()}`, {
@@ -100,7 +100,12 @@ export default class Scene2 extends Phaser.Scene {
     cellObj.off('clicked', this.addCoin);
     cellObj.input.enabled = false;
 
-    console.log(this.game.status(logicBoard));
-    this.playerTurn.setText(`Your turn: ${this.game.currentPlayer.getName()}`);
+    if (this.game.inspectStatus(logicBoard) === this.game.status.win()) {
+      console.log('win');
+    } else if (this.game.inspectStatus(logicBoard) === this.game.status.draw()) {
+      console.log('draw');
+    } else {
+      this.playerTurn.setText(`Your turn: ${this.game.currentPlayer.getName()}`);
+    }
   }
 }

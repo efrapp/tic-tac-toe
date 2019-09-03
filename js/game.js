@@ -19,35 +19,39 @@ const Game = (() => {
     scene: [Scene2, Scene1],
   };
 
+  const status = (() => {
+    const win = () => 'win';
+    const playing = () => 'playing';
+    const draw = () => 'draw';
+
+    return { win, playing, draw };
+  })();
+
   // lb = logic board
-  const status = (lb) => {
+  const inspectStatus = (lb) => {
     const lastPos = lb.length - 1;
-    const state = {
-      win: 'win',
-      playing: 'playing',
-      draw: 'draw',
-    };
+
     for (let i = 0; i <= lastPos; i += 1) {
       if (lb[i][0] === lb[i][1] && lb[i][1] === lb[i][2] && lb[i][2] !== null) {
-        return state.win;
+        return status.win();
       }
       if (lb[0][i] === lb[1][i] && lb[1][i] === lb[2][i] && lb[2][i] !== null) {
-        return state.win;
+        return status.win();
       }
     }
 
     if (lb[0][0] === lb[1][1] && lb[1][1] === lb[2][2] && lb[2][2] !== null) {
-      return state.win;
+      return status.win();
     }
     if (lb[lastPos][0] === lb[lastPos - 1][1] && lb[lastPos - 1][1] === lb[lastPos - 2][2]
       && lb[lastPos - 2][2] != null) {
-      return state.win;
+      return status.win();
     }
     if (!lb[0].includes(null) && !lb[1].includes(null) && !lb[2].includes(null)) {
-      return state.draw;
+      return status.draw();
     }
 
-    return state.playing;
+    return status.playing();
   };
 
   const init = () => {
@@ -56,6 +60,7 @@ const Game = (() => {
     game.player2 = Player('Player2', 'O');
     game.currentPlayer = game.player1;
     game.board = Board();
+    game.inspectStatus = inspectStatus;
     game.status = status;
   };
 
