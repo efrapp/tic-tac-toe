@@ -75,8 +75,6 @@ export default class Scene2 extends Phaser.Scene {
         cellObj.parentContainer.getIndex(cellObj),
         this.game.player1.getMark(),
       );
-
-      this.game.currentPlayer = this.game.player2;
     } else {
       const sCoin = Coin({
         scene: this,
@@ -93,19 +91,28 @@ export default class Scene2 extends Phaser.Scene {
         cellObj.parentContainer.getIndex(cellObj),
         this.game.player2.getMark(),
       );
-
-      this.game.currentPlayer = this.game.player1;
     }
 
     cellObj.off('clicked', this.addCoin);
     cellObj.input.enabled = false;
 
     if (this.game.inspectStatus(logicBoard) === this.game.status.win()) {
-      console.log('win');
+      this.endGame();
     } else if (this.game.inspectStatus(logicBoard) === this.game.status.draw()) {
-      console.log('draw');
+      this.endGame();
     } else {
+      if (this.game.currentPlayer === this.game.player1) {
+        this.game.currentPlayer = this.game.player2;
+      } else {
+        this.game.currentPlayer = this.game.player1;
+      }
       this.playerTurn.setText(`Your turn: ${this.game.currentPlayer.getName()}`);
     }
+  }
+
+  endGame() {
+    this.music.stop();
+    this.scene.stop();
+    this.scene.launch('end');
   }
 }

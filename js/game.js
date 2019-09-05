@@ -3,6 +3,8 @@ import Scene1 from './scene1.js';
 // eslint-disable-next-line import/extensions
 import Scene2 from './scene2.js';
 // eslint-disable-next-line import/extensions
+import Scene3 from './scene3.js';
+// eslint-disable-next-line import/extensions
 import Board from './board.js';
 // eslint-disable-next-line import/extensions
 import Player from './player.js';
@@ -16,7 +18,7 @@ const Game = (() => {
     height: window.innerHeight,
     // backgroundColor: '#222288',
     dom: { createContainer: true },
-    scene: [Scene2, Scene1],
+    scene: [Scene2, Scene1, Scene3],
   };
 
   const status = (() => {

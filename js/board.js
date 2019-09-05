@@ -1,5 +1,5 @@
 const Board = () => {
-  const gameBoard = [[null, null, null], [null, null, null], [null, null, null]];
+  let gameBoard = [[null, null, null], [null, null, null], [null, null, null]];
 
   const get = () => gameBoard;
   const translateToXY = (p) => {
@@ -55,10 +55,15 @@ const Board = () => {
     }, scene);
   };
 
+  const reset = () => {
+    gameBoard = [[null, null, null], [null, null, null], [null, null, null]];
+  };
+
   return {
     get,
     update,
     createGraphicGrid,
+    reset,
   };
 };
 
