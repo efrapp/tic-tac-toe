@@ -5,7 +5,7 @@ const Player = (name, mark) => {
   const getName = () => pName;
   const getMark = () => pMark;
 
-  const setName = (newName) => { pName = newName; };
+  const setName = (newName) => { pName = newName || pName; };
   const setMark = (newMark) => { pMark = newMark; };
 
   return {

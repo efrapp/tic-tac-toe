@@ -17,8 +17,11 @@ const Game = (() => {
     width: window.innerWidth,
     height: window.innerHeight,
     // backgroundColor: '#222288',
-    dom: { createContainer: true },
-    scene: [Scene2, Scene1, Scene3],
+    parent: true,
+    dom: {
+      createContainer: true,
+    },
+    scene: [Scene1, Scene2, Scene3],
   };
 
   const status = (() => {
