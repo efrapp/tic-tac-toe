@@ -1,3 +1,29 @@
 body {
   margin: 0;
 }
+
+input {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid #66380F;
+  border-radius: 4px;
+  color: #F7CA18;
+  font-size: 24px;
+  margin: 10px;
+  padding: 20px 10px;
+  width: 90%;
+}
+
+input::placeholder {
+  color: #F7CA18;
+}
+
+button {
+  background-color: #66380F;
+  border: none;
+  border-radius: 3px;
+  color: #F7CA18;
+  cursor: pointer;
+  font-size: 24px;
+  margin: 10px 35%;
+  padding: 20px 25px;
+}

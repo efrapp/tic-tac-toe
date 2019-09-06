@@ -15,11 +15,9 @@ export default class Scene1 extends Phaser.Scene {
 
     const form = this.add.dom(300, 200).createFromCache('introform');
     form.setPosition(
-      this.game.config.width / 2 - form.width / 2,
-      this.game.config.height / 2 - form.height / 2,
+      this.game.config.width / 2,
+      this.game.config.height / 2,
     );
-    // this.add.dom(600, 600, 'div', 'background-color: lime; width: 220px; height: 100px; font: 48px Arial', 'Phaser');
-    // console.log(form);
 
     form.addListener('click');
 
