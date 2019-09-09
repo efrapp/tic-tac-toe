@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 export default class Scene1 extends Phaser.Scene {
   constructor() {
     super('intro');
@@ -23,7 +24,6 @@ export default class Scene1 extends Phaser.Scene {
 
     form.on('click', (event) => {
       if (event.target.id === 'play_game') {
-        // console.log(form.getChildByName('player1').value);
         const player1 = form.getChildByName('player1');
         const player2 = form.getChildByName('player2');
 
@@ -39,7 +39,6 @@ export default class Scene1 extends Phaser.Scene {
   }
 
   update() {
-    // Uncomment this line to animate the background
     this.bg.tilePositionX -= 0.5;
   }
 }

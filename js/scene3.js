@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 export default class Scene3 extends Phaser.Scene {
   constructor() {
     super('end');
@@ -103,7 +104,6 @@ export default class Scene3 extends Phaser.Scene {
   }
 
   update() {
-    // Uncomment this line to animate the background
     this.bg.tilePositionX -= 0.5;
   }
 }

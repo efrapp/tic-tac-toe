@@ -10,13 +10,11 @@ import Board from './board.js';
 import Player from './player.js';
 
 const Game = (() => {
-  // const board = [];
-
   const config = {
+    // eslint-disable-next-line no-undef
     type: Phaser.AUTO,
     width: window.innerWidth,
     height: window.innerHeight,
-    // backgroundColor: '#222288',
     parent: true,
     dom: {
       createContainer: true,
@@ -60,6 +58,7 @@ const Game = (() => {
   };
 
   const init = () => {
+    // eslint-disable-next-line no-undef
     const game = new Phaser.Game(config);
     game.player1 = Player('Player1', 'X');
     game.player2 = Player('Player2', 'O');
@@ -75,9 +74,3 @@ const Game = (() => {
 })();
 
 Game.init();
-// Game reponsabilities:
-//  create board
-//  update board
-//  create two players
-//  switch players
-//  check winner or tie
