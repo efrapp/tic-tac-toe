@@ -15,10 +15,7 @@ export default class Scene1 extends Phaser.Scene {
     this.bg.setScrollFactor(0);
 
     const form = this.add.dom(300, 200).createFromCache('introform');
-    form.setPosition(
-      this.game.config.width / 2,
-      this.game.config.height / 2,
-    );
+    form.setPosition(this.game.config.width / 2, this.game.config.height / 2);
 
     form.addListener('click');
 

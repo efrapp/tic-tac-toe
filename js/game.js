@@ -1,12 +1,10 @@
-// eslint-disable-next-line import/extensions
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
 import Scene1 from './scene1.js';
-// eslint-disable-next-line import/extensions
 import Scene2 from './scene2.js';
-// eslint-disable-next-line import/extensions
 import Scene3 from './scene3.js';
-// eslint-disable-next-line import/extensions
 import Board from './board.js';
-// eslint-disable-next-line import/extensions
 import Player from './player.js';
 
 const Game = (() => {

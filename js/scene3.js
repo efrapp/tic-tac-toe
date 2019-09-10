@@ -22,32 +22,20 @@ export default class Scene3 extends Phaser.Scene {
       finalMessage = 'This is a draw!';
     }
 
-    const statusMsg = this.add.text(
-      0,
-      0,
-      finalMessage, {
-        font: '60px Arial',
-        fill: '#F7CA18',
-      },
-    );
+    const statusMsg = this.add.text(0, 0, finalMessage, {
+      font: '60px Arial',
+      fill: '#F7CA18',
+    });
 
-    const playAgain = this.add.text(
-      0,
-      0,
-      'Play Again?', {
-        font: '50px Arial',
-        fill: '#F7CA18',
-      },
-    );
+    const playAgain = this.add.text(0, 0, 'Play Again?', {
+      font: '50px Arial',
+      fill: '#F7CA18',
+    });
 
-    const quitGame = this.add.text(
-      0,
-      0,
-      'Quit Game', {
-        font: '30px Arial',
-        fill: '#F7CA18',
-      },
-    );
+    const quitGame = this.add.text(0, 0, 'Quit Game', {
+      font: '30px Arial',
+      fill: '#F7CA18',
+    });
 
     const endSoundConfig = {
       mute: false,
@@ -59,19 +47,15 @@ export default class Scene3 extends Phaser.Scene {
       delay: 0,
     };
 
-    statusMsg.setPosition(
-      this.game.config.width / 2 - statusMsg.width / 2,
-      this.game.config.height / 2 - 100,
-    );
+    statusMsg.setPosition(this.game.config.width / 2 - statusMsg.width / 2,
+      this.game.config.height / 2 - 100);
 
     this.endSound = this.sound.add('end_sound');
 
     this.endSound.play(endSoundConfig);
 
-    playAgain.setPosition(
-      this.game.config.width / 2 - playAgain.width / 2,
-      this.game.config.height / 2 + 20,
-    );
+    playAgain.setPosition(this.game.config.width / 2 - playAgain.width / 2,
+      this.game.config.height / 2 + 20);
 
     playAgain.setBackgroundColor('#66380F');
     playAgain.setPadding(20, 20, 20, 20);
@@ -85,10 +69,8 @@ export default class Scene3 extends Phaser.Scene {
       this.scene.launch('playGame');
     });
 
-    quitGame.setPosition(
-      this.game.config.width / 2 - quitGame.width / 2,
-      this.game.config.height / 2 + 150,
-    );
+    quitGame.setPosition(this.game.config.width / 2 - quitGame.width / 2,
+      this.game.config.height / 2 + 150);
 
     quitGame.setBackgroundColor('#66380F');
     quitGame.setPadding(10, 10, 10, 10);
