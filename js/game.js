@@ -5,6 +5,10 @@ import Board from './board.js';
 import Player from './player.js';
 
 const Game = (() => {
+  const player1 = Player('Player1', 'X');
+  const player2 = Player('Player2', 'O');
+  const board = Board();
+
   const config = {
     type: Phaser.AUTO,
     width: window.innerWidth,
@@ -15,6 +19,8 @@ const Game = (() => {
     },
     scene: [Scene1, Scene2, Scene3],
   };
+
+  const game = new Phaser.Game(config);
 
   const status = (() => {
     const win = () => 'win';
@@ -52,18 +58,15 @@ const Game = (() => {
   };
 
   const init = () => {
-    const game = new Phaser.Game(config);
-    game.player1 = Player('Player1', 'X');
-    game.player2 = Player('Player2', 'O');
-    game.currentPlayer = game.player1;
-    game.board = Board();
+    game.player1 = player1;
+    game.player2 = player2;
+    game.currentPlayer = player1;
+    game.board = board;
     game.inspectStatus = inspectStatus;
     game.status = status;
   };
 
-  return {
-    init,
-  };
+  return { init };
 })();
 
 Game.init();
