@@ -1,6 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable import/no-named-as-default */
 import Scene1 from './scene1.js';
 import Scene2 from './scene2.js';
 import Scene3 from './scene3.js';
@@ -9,7 +6,6 @@ import Player from './player.js';
 
 const Game = (() => {
   const config = {
-    // eslint-disable-next-line no-undef
     type: Phaser.AUTO,
     width: window.innerWidth,
     height: window.innerHeight,
@@ -56,7 +52,6 @@ const Game = (() => {
   };
 
   const init = () => {
-    // eslint-disable-next-line no-undef
     const game = new Phaser.Game(config);
     game.player1 = Player('Player1', 'X');
     game.player2 = Player('Player2', 'O');

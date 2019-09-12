@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 export default class Scene1 extends Phaser.Scene {
   constructor() {
     super('intro');

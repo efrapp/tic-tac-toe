@@ -1,7 +1,5 @@
-// eslint-disable-next-line import/extensions
 import Coin from './coin.js';
 
-// eslint-disable-next-line no-undef
 export default class Scene2 extends Phaser.Scene {
   constructor() {
     super('playGame');
