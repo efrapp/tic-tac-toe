@@ -38,7 +38,7 @@ export default class Scene2 extends Phaser.Scene {
     };
 
     this.music.play(bgSoundConfig);
-    this.game.board.createGraphicGrid(this);
+    this.createGraphicGrid();
 
     this.playerTurn = this.add.text(20, 20, `Your turn: ${this.game.currentPlayer.getName()}`, {
       font: '30px Arial',
@@ -99,6 +99,31 @@ export default class Scene2 extends Phaser.Scene {
       }
       this.playerTurn.setText(`Your turn: ${this.game.currentPlayer.getName()}`);
     }
+  }
+
+  createGraphicGrid() {
+    const grid = this.add.container(0, 0);
+
+    grid.add(this.add.image(this.game.config.width / 2 - 128, this.game.config.height / 2 - 140, 'cell'));
+    grid.add(this.add.image(this.game.config.width / 2, this.game.config.height / 2 - 140, 'cell'));
+    grid.add(this.add.image(this.game.config.width / 2 + 128, this.game.config.height / 2 - 140, 'cell'));
+
+    grid.add(this.add.image(this.game.config.width / 2 - 128, this.game.config.height / 2, 'cell'));
+    grid.add(this.add.image(this.game.config.width / 2, this.game.config.height / 2, 'cell'));
+    grid.add(this.add.image(this.game.config.width / 2 + 128, this.game.config.height / 2, 'cell'));
+
+    grid.add(this.add.image(this.game.config.width / 2 - 128, this.game.config.height / 2 + 140, 'cell'));
+    grid.add(this.add.image(this.game.config.width / 2, this.game.config.height / 2 + 140, 'cell'));
+    grid.add(this.add.image(this.game.config.width / 2 + 128, this.game.config.height / 2 + 140, 'cell'));
+
+    grid.iterate((cell) => {
+      cell.setInteractive();
+      cell.on('clicked', this.addCoin, this);
+    });
+
+    this.input.on('gameobjectdown', (pointer, gameObject) => {
+      gameObject.emit('clicked', gameObject);
+    }, this);
   }
 
   endGame() {

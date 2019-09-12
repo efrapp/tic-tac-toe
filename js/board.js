@@ -30,31 +30,6 @@ const Board = () => {
     return gameBoard;
   };
 
-  const createGraphicGrid = (scene) => {
-    const grid = scene.add.container(0, 0);
-
-    grid.add(scene.add.image(scene.game.config.width / 2 - 128, scene.game.config.height / 2 - 140, 'cell'));
-    grid.add(scene.add.image(scene.game.config.width / 2, scene.game.config.height / 2 - 140, 'cell'));
-    grid.add(scene.add.image(window.innerWidth / 2 + 128, scene.game.config.height / 2 - 140, 'cell'));
-
-    grid.add(scene.add.image(scene.game.config.width / 2 - 128, scene.game.config.height / 2, 'cell'));
-    grid.add(scene.add.image(scene.game.config.width / 2, scene.game.config.height / 2, 'cell'));
-    grid.add(scene.add.image(scene.game.config.width / 2 + 128, scene.game.config.height / 2, 'cell'));
-
-    grid.add(scene.add.image(scene.game.config.width / 2 - 128, scene.game.config.height / 2 + 140, 'cell'));
-    grid.add(scene.add.image(scene.game.config.width / 2, scene.game.config.height / 2 + 140, 'cell'));
-    grid.add(scene.add.image(scene.game.config.width / 2 + 128, scene.game.config.height / 2 + 140, 'cell'));
-
-    grid.iterate((cell) => {
-      cell.setInteractive();
-      cell.on('clicked', scene.addCoin, scene);
-    });
-
-    scene.input.on('gameobjectdown', (pointer, gameObject) => {
-      gameObject.emit('clicked', gameObject);
-    }, scene);
-  };
-
   const reset = () => {
     gameBoard = [[null, null, null], [null, null, null], [null, null, null]];
   };
@@ -62,7 +37,6 @@ const Board = () => {
   return {
     get,
     update,
-    createGraphicGrid,
     reset,
   };
 };
