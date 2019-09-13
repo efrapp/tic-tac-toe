@@ -34,6 +34,12 @@ One thing to note here is that the scenes don't have the Factory style, they use
 * **Coin sound**: https://www.soundeffectsplus.com/
 * **End sound**: https://www.dl-sounds.com/?s=victory
 
+# Live Demo
+
+The first time the live demo is run, it might take some seconds to load and switch between scenes but next times it will be faster.
+
+**Alternative link**: https://immense-ocean-95820.herokuapp.com/
+
 ## Contributors
 
 * [Efrain Pinto](https://github.com/efrapp)
